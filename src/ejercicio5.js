@@ -2,11 +2,7 @@ class SlotMachine {
     constructor() {
         this.coins = 0;
     }
-
-    insertCoin() {
-        this.coins++;
-    }
-
+    
     spin() {
         const reels = [];
         for (let i = 0; i < 3; i++) {
@@ -16,18 +12,14 @@ class SlotMachine {
     }
 
     play() {
-        this.insertCoin();
+        this.coins++;
         const isWin = this.spin();
         if (isWin) {
             console.log(`Congratulations!!! You won ${this.coins} coins!!`);
-            this.resetCoins();
+            this.coins = 0;
         } else {
             console.log('Good luck next time!!');
         }
-    }
-
-    resetCoins() {
-        this.coins = 0;
     }
 }
 
